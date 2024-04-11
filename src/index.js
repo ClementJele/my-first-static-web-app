@@ -1,10 +1,10 @@
 //create cars api using express
 const express = require('express');
+
 const app = express();
+const bodyParser = require('body-parser');
 
-
-
-app.use(express.json());
+app.use(bodyParser.json());
 
 const cars = require('./cars.json');
 
@@ -46,7 +46,7 @@ app.post('/cars', (req, res) => {
     res.json(newCar);
 });
 
-//start app at localhost:3001
-app.listen(3001, () => {
-    console.log('Server started at http://localhost:3001');
+//start app at localhost:3001, it  must get the port from azure
+app.listen(port.env, () => {
+    console.log('Server started at http://localhost:3000');
 });
